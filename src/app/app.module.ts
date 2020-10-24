@@ -8,6 +8,9 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CreateWorkoutPageComponent } from './pages/create-workout-page/create-workout-page.component';
+import { ViewWorkoutsPageComponent } from './pages/view-workouts-page/view-workouts-page.component';
+import { ViewSingleWorkoutPageComponent } from './pages/view-single-workout-page/view-single-workout-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
 import {
@@ -32,6 +35,9 @@ import { RegisterService } from './pages/register-page/register-page.service';
     RegisterPageComponent,
     NavigationComponent,
     FooterComponent,
+    CreateWorkoutPageComponent,
+    ViewWorkoutsPageComponent,
+    ViewSingleWorkoutPageComponent,
   ],
   imports: [
     BrowserModule,
