@@ -1,1 +1,33 @@
 <h1>Register</h1>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Email address</mat-label>
+        <input matInput placeholder="some@address.com" type="email">
+        <mat-hint>Type in your email address</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password">
+        <mat-hint>Type in your password</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Repeat password</mat-label>
+        <input matInput type="password">
+        <mat-hint>Type in your password again</mat-hint>
+      </mat-form-field>
+    </p>
+    <label class="mdc-text-field mdc-text-field--filled">
+      <span class="mdc-text-field__ripple"></span>
+      <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+      <span class="mdc-floating-label" id="my-label-id">Hint text</span>
+      <span class="mdc-line-ripple"></span>
+    </label>
+  </mat-grid-tile>
+  <mat-grid-tile>Something to fill white space - possibly just coppied from assignment 1</mat-grid-tile>
+</mat-grid-list>
