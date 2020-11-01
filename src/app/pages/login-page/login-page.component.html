@@ -1,5 +1,23 @@
-<h1>Login</h1>
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>Login form</mat-grid-tile>
-  <mat-grid-tile>Some content fill out</mat-grid-tile>
-</mat-grid-list>
+<div class="login-container">
+  <div>
+    <h2>Please log into your account</h2>
+    <form method="POST" [formGroup]="loginForm">
+      <p>
+        <mat-form-field appearance="outline" class="login-item">
+          <mat-label>Email address</mat-label>
+          <input matInput placeholder="some@address.com" type="email">
+          <mat-hint>Type in your email address</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline" class="login-item">
+          <mat-label>Password</mat-label>
+          <input matInput type="password">
+          <mat-hint>Type in your password</mat-hint>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button color="primary" class="login-item">Log in</button>
+    </form>
+  </div>
+</div>
+

@@ -9,6 +9,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule} from '@angular/common/http';
 import {
   MatButtonModule,
   MatInputModule,
@@ -17,8 +18,11 @@ import {
   MatIconModule,
   MatToolbarModule,
   MatGridListModule,
+  MatDividerModule,
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginService } from './pages/login-page/login-page.service';
+import { RegisterService } from './pages/register-page/register-page.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -40,9 +45,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatToolbarModule,
     MatGridListModule,
+    MatDividerModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    RegisterService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

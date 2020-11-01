@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators  } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login-page',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class LoginPageComponent {
   title = 'Login';
+
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl(null, [Validators.email, Validators.required]),
+    password: new FormControl(null, Validators.required)
+  });
 }
