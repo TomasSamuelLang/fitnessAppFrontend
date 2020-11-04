@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterPageComponent },
   { path: 'createWorkout', component: CreateWorkoutPageComponent },
   { path: 'workouts', component: ViewWorkoutsPageComponent },
-  { path: 'workout/:id', component: ViewSingleWorkoutPageComponent },
+  { path: 'workouts/:id', component: ViewSingleWorkoutPageComponent },
   { path: '**', redirectTo: '' },
 ];
 

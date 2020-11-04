@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    padding-top: 5%;
+    width: 100%;
+    padding-left: 20%;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.workout-element {
+    border: gray solid 1px;
+    background-color: #a382e459;
+    padding: 30px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+     width: 400px;
+}

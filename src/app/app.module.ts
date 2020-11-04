@@ -28,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './pages/login-page/auth.service';
 import { RegisterService } from './pages/register-page/register-page.service';
 import { HomePageService } from './pages/home-page/home-page.service';
+import { WorkoutService } from './services/workout.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { HomePageService } from './pages/home-page/home-page.service';
     RegisterService,
     HomePageService,
     AuthService,
+    WorkoutService
   ],
   bootstrap: [AppComponent]
 })
