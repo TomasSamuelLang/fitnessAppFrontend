@@ -1,1 +1,16 @@
-<p>view-workouts-page works!</p>
+<div class="wrapper">
+  <p>view-workouts-page works!</p>
+
+  <div class="list-container">
+    <div class="workout-element" *ngFor="let workout  of workouts" (click)="getWorkout(workout._id)">
+      <h3>{{ workout.name }}</h3>
+      <div>
+        {{workout.description}}
+      </div>
+      <div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

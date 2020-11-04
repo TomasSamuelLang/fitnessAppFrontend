@@ -1,4 +1,5 @@
 export default class Workout {
+    _id: string;
     name: string;
     date: Date;
     description: string;

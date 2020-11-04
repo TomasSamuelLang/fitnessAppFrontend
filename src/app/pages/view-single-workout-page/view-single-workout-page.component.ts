@@ -10,16 +10,14 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./view-single-workout-page.component.css']
 })
 export class ViewSingleWorkoutPageComponent implements OnInit {
-  exercise: string
+  workoutId: string = "";
 
   constructor(private route: ActivatedRoute,
-    ) { }
+  ) { }
 
   ngOnInit() {
-    this.route.paramMap.pipe(switchMap((params: ParamMap) => {
-      return params.get('id');
-    })).subscribe(val => {
-      console.log("val", val)
-      this.exercise = val})
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.workoutId = params.get('id');
+    });
   }
 }
