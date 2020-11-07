@@ -22,6 +22,8 @@ import {
   MatToolbarModule,
   MatGridListModule,
   MatDividerModule,
+  MatListModule,
+  MatCardModule,
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './pages/login-page/login-page.service';
@@ -54,6 +56,8 @@ import { WorkoutService } from './services/workout.service';
     MatGridListModule,
     MatDividerModule,
     ReactiveFormsModule,
+    MatListModule,
+    MatCardModule
   ],
   providers: [
     RegisterService,

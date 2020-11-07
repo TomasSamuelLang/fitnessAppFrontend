@@ -1,16 +1,19 @@
 <div class="wrapper">
-  <p>view-workouts-page works!</p>
-
   <div class="list-container">
-    <div class="workout-element" *ngFor="let workout  of workouts" (click)="getWorkout(workout._id)">
-      <h3>{{ workout.name }}</h3>
-      <div>
-        {{workout.description}}
-      </div>
-      <div>
-
-      </div>
-    </div>
+    <mat-card class="list-item" *ngFor="let workout  of workouts" (click)="getWorkout(workout._id)">
+      <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>{{workout.name}}</mat-card-title>
+        <mat-card-subtitle>{{workout.date}}</mat-card-subtitle>
+      </mat-card-header>
+      <div mat-card-image></div>
+      <mat-card-content>
+        <p>
+          {{workout.description}}
+        </p>
+        Containing {{workout.exercises.length}} exercise(s)
+      </mat-card-content>
+    </mat-card>
   </div>
 
 </div>
