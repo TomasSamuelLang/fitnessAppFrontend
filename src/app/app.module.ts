@@ -24,8 +24,10 @@ import {
   MatDividerModule,
   MatListModule,
   MatCardModule,
+  MatOptionModule
 } from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginService } from './pages/login-page/login-page.service';
 import { AuthService } from './pages/login-page/auth.service';
 import { RegisterService } from './pages/register-page/register-page.service';
 import { HomePageService } from './pages/home-page/home-page.service';
@@ -59,7 +61,9 @@ import { WorkoutService } from './services/workout.service';
     MatCardModule,
     ReactiveFormsModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    MatOptionModule,
   ],
   providers: [
     RegisterService,

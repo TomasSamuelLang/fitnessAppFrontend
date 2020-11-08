@@ -6,7 +6,7 @@ import Workout, { WorkoutExercise } from '../model/Workout';
   providedIn: 'root'
 })
 export class WorkoutService {
-  apiBaseUrl = "localhost:3000/workouts";
+  apiBaseUrl = "http://localhost:3000/workouts";
   http: HttpClient;
 
   constructor(client: HttpClient) {
@@ -14,6 +14,10 @@ export class WorkoutService {
   }
 
   getWorkouts(userId: string) {
-    return this.http.get<Workout[]>(`http://${this.apiBaseUrl}/${userId}`).toPromise();
+    return this.http.get<Workout[]>(`${this.apiBaseUrl}/${userId}`).toPromise();
+  }
+
+  postWorkout(userId: string, workout: Workout) {
+    return this.http.post(`${this.apiBaseUrl}/${userId}`, workout).toPromise();
   }
 }
