@@ -1,6 +1,7 @@
 <div class="wrapper">
   <h2> Create new workout </h2>
-  <button mat-raised-button color="primary" class="submit-button" (click)="onSubmit()" [disabled]="!creteWorkoutForm.valid" >Save workout</button>
+  <button mat-raised-button color="primary" class="submit-button" (click)="onSubmit()"
+    [disabled]="!creteWorkoutForm.valid">Save workout</button>
   <form method="POST" [formGroup]="creteWorkoutForm">
     <div class="form-field">
       <mat-form-field>
@@ -18,22 +19,41 @@
     </div>
   </form>
   <!-- If you know how to move this inside the form, it would be nice, but this works too -->
-  <mat-selection-list #exerciseList class="selection-list" [(ngModel)]="newWorkout.exercises">
+  <mat-selection-list #exerciseList class="selection-list" [(ngModel)]="selectedExercises">
     <div class="list-item-container" *ngFor="let exercise of availableExercises">
       <mat-list-option class="selection-list-item" [value]="exercise">
         <p>{{exercise.name}}</p>
       </mat-list-option>
-      <div class="selection-list-item-input" *ngIf="isHidden(exercise)">
+      <div class="selection-list-item-input" *ngIf="isVisible(exercise)">
         <div>
           <mat-label>Sets</mat-label>
-          <input matInput class="selection-list-item-input" appearance="outline" type="number" title="sets" [(ngModel)]="exercise.sets">
+          <input matInput class="selection-list-item-input" appearance="outline" type="number" title="sets"
+            [(ngModel)]="exercise.sets">
         </div>
         <div>
           <mat-label>Reps</mat-label>
-          <input matInput class="selection-list-item-input" appearance="outline" type="number" title="reps or time" [(ngModel)]="exercise.repsOrTime">
+          <input matInput class="selection-list-item-input" appearance="outline" type="number" title="reps or time"
+            [(ngModel)]="exercise.repsOrTime">
         </div>
         <div> {{exercise.description}} </div>
       </div>
     </div>
   </mat-selection-list>
+  <div *ngIf="!newExercise">
+    <button mat-raised-button color="primary" class="submit-button" (click)="createExercise()">Create new exercise</button>
+  </div>
+  <form class="new-exercise" *ngIf="newExercise">
+    <h2> Create new exercise</h2>
+    <div id="newExerciseInputs">
+      <mat-form-field id="exerciseName">
+        <mat-label> Name </mat-label>
+        <input matInput [(ngModel)]="newExercise.name" name="name" required #name="ngModel">
+      </mat-form-field>
+      <mat-form-field id="exerciseDesc">
+        <mat-label> Description </mat-label>
+        <textarea matInput [(ngModel)]="newExercise.description" name="description"> </textarea>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" class="submit-button" (click)="saveExercise()" [disabled]="name.invalid">Save</button>
+  </form>
 </div>

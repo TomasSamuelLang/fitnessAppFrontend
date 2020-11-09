@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutService } from '../../services/workout.service';
-import Workout, { WorkoutExercise} from '../../model/Workout';
+import Workout, { ViewWorkoutExercise} from '../../model/Workout';
 import {MatListModule, MatList} from '@angular/material/list';
 import { Router } from '@angular/router';
 

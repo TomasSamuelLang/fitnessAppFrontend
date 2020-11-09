@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ExerciseService {
-  apiBaseUrl = "localhost:3000/exercises";
+  apiBaseUrl = "http://localhost:3000/exercises";
   http: HttpClient;
 
 
@@ -15,6 +15,10 @@ export class ExerciseService {
   }
 
   getExercises(){
-    return this.http.get<Exercise[]>(`http://${this.apiBaseUrl}`).toPromise();
+    return this.http.get<Exercise[]>(`${this.apiBaseUrl}`).toPromise();
+  }
+
+  postExercise(exercise: Exercise) {
+    return this.http.post<Exercise>(this.apiBaseUrl, exercise).toPromise();
   }
 }

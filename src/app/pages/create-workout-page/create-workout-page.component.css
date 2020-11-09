@@ -38,3 +38,19 @@ input::-webkit-inner-spin-button {
 button {
     width: 300px;
 }
+
+textarea{
+    width: 400px;
+    height: 100px;
+}
+
+#newExerciseInputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#exerciseDesc{
+    flex: 2;
+    margin-left: 10px;
+}
