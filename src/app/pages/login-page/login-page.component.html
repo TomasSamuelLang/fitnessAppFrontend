@@ -5,18 +5,18 @@
       <p>
         <mat-form-field appearance="outline" class="login-item">
           <mat-label>Email address</mat-label>
-          <input matInput placeholder="some@address.com" type="email">
+          <input formControlName="email" matInput placeholder="some@address.com" type="email">
           <mat-hint>Type in your email address</mat-hint>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="outline" class="login-item">
           <mat-label>Password</mat-label>
-          <input matInput type="password">
+          <input formControlName="password" matInput type="password">
           <mat-hint>Type in your password</mat-hint>
         </mat-form-field>
       </p>
-      <button mat-raised-button color="primary" class="login-item">Log in</button>
+      <button mat-raised-button color="primary" class="login-item" (click)="login()">Log in</button>
     </form>
   </div>
 </div>

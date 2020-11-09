@@ -30,7 +30,7 @@ export class RegisterPageComponent implements OnInit {
         return;
     }
     this.registerService.registerUser(JSON.stringify(this.registerForm.value))
-    .subscribe(data => { console.log(data), this.router.navigate(['/login']); },
+    .subscribe(data => { console.log(data), alert('Registered successfully'); this.router.navigate(['/login']); },
                error => console.error(error));
   }
 

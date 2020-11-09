@@ -19,10 +19,12 @@ import {
   MatToolbarModule,
   MatGridListModule,
   MatDividerModule,
+  MatCardModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginService } from './pages/login-page/login-page.service';
+import { AuthService } from './pages/login-page/auth.service';
 import { RegisterService } from './pages/register-page/register-page.service';
+import { HomePageService } from './pages/home-page/home-page.service';
 
 @NgModule({
   declarations: [
@@ -46,10 +48,13 @@ import { RegisterService } from './pages/register-page/register-page.service';
     MatToolbarModule,
     MatGridListModule,
     MatDividerModule,
+    MatCardModule,
     ReactiveFormsModule,
   ],
   providers: [
     RegisterService,
+    HomePageService,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })
