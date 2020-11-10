@@ -1,0 +1,56 @@
+.form-field{
+    margin-top: 15px;
+}
+
+.selection-list {
+    max-width: 500px;
+}
+
+.list-item-container {
+    border: lightgray solid 1px;
+    margin: 3px;
+}
+
+.selection-list-item {
+    flex: 1;
+}
+
+.selection-list-item-input {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding-left: 16px;
+}
+
+input.selection-list-item-input {
+    width: 30px;
+    border: 1px solid lightgray;
+    margin: 5px;
+    padding-left: 2px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+    width: 300px;
+}
+
+textarea{
+    width: 400px;
+    height: 100px;
+}
+
+#newExerciseInputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#exerciseDesc{
+    flex: 2;
+    margin-left: 10px;
+}

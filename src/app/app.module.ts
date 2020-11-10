@@ -8,6 +8,9 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CreateWorkoutPageComponent } from './pages/create-workout-page/create-workout-page.component';
+import { ViewWorkoutsPageComponent } from './pages/view-workouts-page/view-workouts-page.component';
+import { ViewSingleWorkoutPageComponent } from './pages/view-single-workout-page/view-single-workout-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
 import {
@@ -19,12 +22,15 @@ import {
   MatToolbarModule,
   MatGridListModule,
   MatDividerModule,
-  MatCardModule
+  MatListModule,
+  MatCardModule,
+  MatOptionModule
 } from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './pages/login-page/auth.service';
 import { RegisterService } from './pages/register-page/register-page.service';
 import { HomePageService } from './pages/home-page/home-page.service';
+import { WorkoutService } from './services/workout.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +40,9 @@ import { HomePageService } from './pages/home-page/home-page.service';
     RegisterPageComponent,
     NavigationComponent,
     FooterComponent,
+    CreateWorkoutPageComponent,
+    ViewWorkoutsPageComponent,
+    ViewSingleWorkoutPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,11 +59,16 @@ import { HomePageService } from './pages/home-page/home-page.service';
     MatDividerModule,
     MatCardModule,
     ReactiveFormsModule,
+    MatListModule,
+    MatCardModule,
+    FormsModule,
+    MatOptionModule,
   ],
   providers: [
     RegisterService,
     HomePageService,
     AuthService,
+    WorkoutService
   ],
   bootstrap: [AppComponent]
 })

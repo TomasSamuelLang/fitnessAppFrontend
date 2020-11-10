@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="list-container">
+    <mat-card class="list-item" *ngFor="let workout  of workouts" (click)="getWorkout(workout._id)">
+      <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>{{workout.name}}</mat-card-title>
+        <mat-card-subtitle>{{workout.date}}</mat-card-subtitle>
+      </mat-card-header>
+      <div mat-card-image></div>
+      <mat-card-content>
+        <p>
+          {{workout.description}}
+        </p>
+        Containing {{workout.exercises.length}} exercise(s)
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

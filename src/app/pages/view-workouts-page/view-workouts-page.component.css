@@ -1,0 +1,14 @@
+.list-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 800px;
+}
+
+.list-item {
+    border: gray solid 1px;
+    background-color: #a382e459;
+    padding-top: 10px;
+    margin-bottom: 20px;
+     width: 400px;
+}
