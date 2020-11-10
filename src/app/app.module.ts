@@ -27,7 +27,6 @@ import {
   MatOptionModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginService } from './pages/login-page/login-page.service';
 import { AuthService } from './pages/login-page/auth.service';
 import { RegisterService } from './pages/register-page/register-page.service';
 import { HomePageService } from './pages/home-page/home-page.service';
