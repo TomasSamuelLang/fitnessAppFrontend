@@ -28,4 +28,14 @@ export class WorkoutService {
   getWorkoutandExercises(workoutId: string): Observable<Workout2> {
     return this.http.get<Workout2>(`${this.apiBaseUrl}/workout/${workoutId}`);
   }
+
+  getWorkout(id: string): Promise<Workout> {
+    return this.http.get<Workout>(`${this.apiBaseUrl}/workout/${id}`).toPromise();
+  }
+
+  updateWorkout(workout) {
+    const token = this.authService.retrieveToken();
+    const header = new HttpHeaders({'Content-Type': 'application/json', Authorization: token});
+    return this.http.put<Workout>(`${this.apiBaseUrl}`, workout, {headers: header}).toPromise();
+  }
 }

@@ -55,7 +55,7 @@ export class CreateWorkoutPageComponent implements OnInit {
 
   onSubmit() {
     this.newWorkout.exercises = this.selectedExercises.map(exercise => {
-      return new WorkoutExercise(exercise.id, exercise.repsOrTime, exercise.sets);
+      return new WorkoutExercise(exercise.id, exercise.repsOrTime, exercise.set);
     })
     this.workoutService.postWorkout(this.user.id, this.newWorkout)
     .then((res: Workout) => {

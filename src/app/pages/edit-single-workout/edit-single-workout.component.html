@@ -1,0 +1,43 @@
+<div class="wrapper" *ngIf="workout">
+    <h2> Edit workout </h2>
+    <div class="error" *ngIf="error"> there has been a problem updating the workout</div>
+    <button mat-raised-button color="primary" class="submit-button" (click)="onSubmit()"
+      [disabled]="!creteWorkoutForm.valid">Update workout</button>
+    <form method="POST" [formGroup]="creteWorkoutForm">
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label> Name </mat-label>
+          <input formControlName="workoutName" matInput tpye="text" [(ngModel)]="workout.name">
+          <mat-hint> The name is used to find the workout </mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label> Description </mat-label>
+          <input formControlName="workoutDescription" matInput tpye="text" [(ngModel)]="workout.description">
+          <mat-hint> Describe your workout </mat-hint>
+        </mat-form-field>
+      </div>
+    </form>
+    <!-- If you know how to move this inside the form, it would be nice, but this works too -->
+    <mat-selection-list #exerciseList class="selection-list" [(ngModel)]="selectedExercises">
+      <div class="list-item-container" *ngFor="let exercise of availableExercises">
+        <mat-list-option class="selection-list-item" [value]="exercise">
+          <p>{{exercise.name}}</p>
+        </mat-list-option>
+        <div class="selection-list-item-input" *ngIf="isHidden(exercise)">
+          <div>
+            <mat-label>Sets</mat-label>
+            <input matInput class="selection-list-item-input" appearance="outline" type="number" title="sets"
+              [(ngModel)]="exercise.set">
+          </div>
+          <div>
+            <mat-label>Reps</mat-label>
+            <input matInput class="selection-list-item-input" appearance="outline" type="number" title="reps or time"
+              [(ngModel)]="exercise.repsOrTime">
+          </div>
+          <div> {{exercise.description}} </div>
+        </div>
+      </div>
+    </mat-selection-list>
+  </div>
