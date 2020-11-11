@@ -23,7 +23,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   login() {
-    if (!this.loginForm.valid){
+    if (!this.loginForm.valid) {
       console.log('Invalid form raise error');
       return;
     } else {
@@ -33,6 +33,8 @@ export class LoginPageComponent implements OnInit {
             console.log('Logged in');
             console.log(response.token);
             this.authService.saveToken(response);
+            this.authService.nextloginValue(this.authService.isLoggedIn());
+            this.authService.nextUserValue(this.authService.parseUserData());
             this.router.navigate(['']);
           });
     }

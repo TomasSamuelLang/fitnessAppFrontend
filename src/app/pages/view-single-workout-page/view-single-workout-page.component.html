@@ -1,2 +1,39 @@
-<p>view-single-workout-page works!</p>
-<p> selected workout id is {{workoutId}}</p> 
+<div class="wrapper">
+  <div class="header">
+    <h1>{{workout.name}}</h1>
+    <h2 *ngIf="isLoggedin | async">You are logged as {{user.email}}</h2>
+    <h3 *ngIf="(isLoggedin | async) && workout.userId == user.id">You can edit this workout</h3>
+    <h2 *ngIf="!(isLoggedin | async)">You are not logged in</h2>
+    <h3 *ngIf="!(isLoggedin | async)">To edit workout or to log activity log in</h3>
+    <h6 *ngIf="!(isLoggedin | async)">You can only edit your own workouts</h6>
+    <div>
+      <button *ngIf="(isLoggedin | async) && workout.userId == user.id" mat-raised-button color="primary" class="button">Edit workout</button>
+      <button *ngIf="(isLoggedin | async) && workout.userId == user.id" mat-raised-button color="primary" class="button">Log activity</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="padding">
+      <div *ngFor="let exercise of workout.exercises; let i = index">
+        <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title>{{exercise.name}}</mat-card-title>
+            <mat-card-subtitle>Sets: {{exercise.set}}</mat-card-subtitle>
+            <mat-card-subtitle>Reps/Time: {{exercise.repsOrTime}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              <!-- Description: {{exercise.description}} -->
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div class="padding">
+      <img src="https://img.icons8.com/ios/452/dumbbell.png" width="400px" height="400px" alt="dumbbell" style="opacity: 0.1;">
+    </div>
+  </div>
+</div>
+
+
+

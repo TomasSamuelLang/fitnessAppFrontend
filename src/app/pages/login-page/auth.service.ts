@@ -11,6 +11,11 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
+  private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn() || false);
+  private user = new BehaviorSubject(this.parseUserData());
+  public isLogged$ = this.loggedIn.asObservable();
+  public user$ = this.user.asObservable();
+
   login(body: any) {
     return this.http.post<any>('http://127.0.0.1:3000/' + 'login', body, {
       observe: 'body',
@@ -22,12 +27,18 @@ export class AuthService {
     localStorage.setItem('token', res.token);
   }
 
+  nextloginValue(value: boolean) {
+    this.loggedIn.next(value);
+  }
+
+  nextUserValue(value: any) {
+    this.user.next(value);
+  }
+
   retrieveToken() {
     if (localStorage.token)  {
-      console.log('Token exist');
       return localStorage.token;
     } else {
-      console.log('No token');
       return null;
     }
   }

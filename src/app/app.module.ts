@@ -24,7 +24,8 @@ import {
   MatDividerModule,
   MatListModule,
   MatCardModule,
-  MatOptionModule
+  MatOptionModule,
+  MatTableModule,
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './pages/login-page/auth.service';
@@ -58,6 +59,7 @@ import { WorkoutService } from './services/workout.service';
     MatGridListModule,
     MatDividerModule,
     MatCardModule,
+    MatTableModule,
     ReactiveFormsModule,
     MatListModule,
     MatCardModule,

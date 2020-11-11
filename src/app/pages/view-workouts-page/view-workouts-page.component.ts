@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutService } from '../../services/workout.service';
 import Workout, { ViewWorkoutExercise} from '../../model/Workout';
-import {MatListModule, MatList} from '@angular/material/list';
 import { Router } from '@angular/router';
+import { AuthService } from '../login-page/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-view-workouts-page',
@@ -10,20 +11,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-workouts-page.component.css', '../../app.component.css']
 })
 export class ViewWorkoutsPageComponent implements OnInit {
-  title = "Workouts"
-  workouts : Workout[]
 
-  constructor(private workoutService: WorkoutService, private router: Router) {   }
+  constructor(private workoutService: WorkoutService, private authService: AuthService,
+              private router: Router) {   }
+
+  title = 'Workouts';
+  workouts: Workout[];
+  isLoggedin: Observable<boolean>;
+  user = this.authService.parseUserData();
+
 
   ngOnInit() {
     // change this to the users ID once we have that in place
-    this.workoutService.getWorkouts("5f76cc899ee6690017c59703")
+    this.workoutService.getWorkouts(this.user.id)
     .then(res => {
       this.workouts = res;
     });
   }
 
-  getWorkout(id: string){
-    this.router.navigate([`/workouts/${id}`])
+  getWorkout(id: string) {
+    this.router.navigate([`/workouts/${id}`]);
   }
 }

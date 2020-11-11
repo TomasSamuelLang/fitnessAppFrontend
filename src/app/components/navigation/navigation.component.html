@@ -6,11 +6,12 @@
     <h1>Fitness app</h1>
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button [routerLink]="'/accounts'"> Home </a>
-      <a mat-button [routerLink]="'/login'"> Login </a>
-      <a mat-button [routerLink]="'/register'"> Register </a>
-      <a mat-button [routerLink]="'/createWorkout'"> Create workout </a>
-      <a mat-button [routerLink]="'/workouts'"> Workout lists </a>
+      <a mat-button [routerLink]="'/'"> Home </a>
+      <a mat-button [routerLink]="'/login'" *ngIf="!(isLoggedin | async)"> Login </a>
+      <a mat-button [routerLink]="'/register'" *ngIf="!(isLoggedin | async)"> Register </a>
+      <a mat-button [routerLink]="'/createWorkout'" *ngIf="isLoggedin | async"> Create workout </a>
+      <a mat-button [routerLink]="'/workouts'" *ngIf="isLoggedin | async">My workouts</a>
+      <a mat-button [routerLink]="'/'" (click)=logoutUser() *ngIf="isLoggedin | async">Logout</a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  padding-top: 2%;
+}
+
+.card {
+  margin: 10px;
+  min-width: 400px;
+  background-color: #fafafb;
+}
+
+.padding {
+  padding-right: 1%;
+  padding-left: 1%;
+}
+
+.header {
+ margin-left: 5rem;
+ margin-right: 5rem;
+ background-color:  #e9ecef;
+ padding-left: 30px;
+ padding-right: 30px;
+}
+
+.button {
+  min-width: 200px;
+  margin: 1rem;
+}

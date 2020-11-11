@@ -13,6 +13,21 @@ export default class Workout {
     }
 }
 
+export class Workout2 {
+  _id: string;
+  name: string;
+  date: Date;
+  description: string;
+  exercises: ViewWorkoutExercise[];
+  userId: string;
+
+  constructor(date: Date, userId: string) {
+      this.exercises = [];
+      this.date = date;
+      this.userId = userId;
+  }
+}
+
 /* to include exercise in a workout, we must include amount of reps and sets */
 export class ViewWorkoutExercise {
     id: string;

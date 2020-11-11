@@ -6,6 +6,8 @@ import { ExerciseService } from '../../services/exercise.service';
 import { WorkoutService } from '../../services/workout.service';
 import { Router } from '@angular/router';
 import User from 'src/app/model/User';
+import { AuthService } from '../login-page/auth.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -19,19 +21,20 @@ export class CreateWorkoutPageComponent implements OnInit {
   selectedExercises: ViewWorkoutExercise[] = [];
   newWorkout: Workout;
   newExercise: Exercise;
-  user: User = new User("5f76cc899ee6690017c59703", "me@gmail.com", "..");
+  isLoggedin: Observable<boolean>;
+  user = this.authService.parseUserData();
 
-  constructor(private exerciseService: ExerciseService, private workoutService: WorkoutService, private router: Router) {
-    this.newWorkout = new Workout(new Date(), this.user._id);
-    
+  constructor(private exerciseService: ExerciseService, private workoutService: WorkoutService, private authService: AuthService, private router: Router) {
+    this.newWorkout = new Workout(new Date(), this.user.id);
   }
 
   ngOnInit() {
+    this.isLoggedin = this.authService.isLogged$;
     this.creteWorkoutForm = new FormGroup({
       workoutName: new FormControl(null, Validators.required),
       workoutDescription: new FormControl(null, Validators.required),
       exerciseList: new FormControl()
-    })
+    });
 
     this.exerciseService.getExercises()
       .then((exercises: Exercise[]) => {
@@ -41,7 +44,7 @@ export class CreateWorkoutPageComponent implements OnInit {
           newEx.description = ex.description;
           return newEx;
         });
-      })
+      });
   }
 
   isVisible(exercise: ViewWorkoutExercise) {
@@ -49,14 +52,14 @@ export class CreateWorkoutPageComponent implements OnInit {
       return exercise.id === ex.id
     }).length > 0
   }
-  
+
   onSubmit() {
     this.newWorkout.exercises = this.selectedExercises.map(exercise => {
       return new WorkoutExercise(exercise.id, exercise.repsOrTime, exercise.sets);
     })
-    this.workoutService.postWorkout(this.user._id, this.newWorkout)
+    this.workoutService.postWorkout(this.user.id, this.newWorkout)
     .then((res: Workout) => {
-      this.router.navigate([`workouts/${res._id}`])
+      this.router.navigate([`workouts/${res._id}`]);
     });
   }
 
@@ -67,13 +70,13 @@ export class CreateWorkoutPageComponent implements OnInit {
   saveExercise() {
     this.exerciseService.postExercise(this.newExercise)
     .then((res: Exercise) => {
-      console.log(res)
+      console.log(res);
       if(res){
         let newExercise = new ViewWorkoutExercise(res._id || res._id, res.name);
         newExercise.description = res.description;
         this.availableExercises.push(newExercise);
         this.newExercise = null;
-      }      
+      }
     });
   }
 }

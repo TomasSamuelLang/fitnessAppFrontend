@@ -1,5 +1,6 @@
 <div class="wrapper">
   <h2> Create new workout </h2>
+  <h3 *ngIf="isLoggedin | async">Hello {{user.email}}</h3>
   <button mat-raised-button color="primary" class="submit-button" (click)="onSubmit()"
     [disabled]="!creteWorkoutForm.valid">Save workout</button>
   <form method="POST" [formGroup]="creteWorkoutForm">

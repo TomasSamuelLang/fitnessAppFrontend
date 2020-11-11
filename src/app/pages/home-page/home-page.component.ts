@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Workout, HomePageService } from './home-page.service';
 import { AuthService } from '../login-page/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -11,16 +12,17 @@ export class HomePageComponent implements OnInit {
   constructor(private homeService: HomePageService, private authService: AuthService) {}
 
   title = 'Home';
-  isLoggedin = this.authService.isLoggedIn();
   workouts: Workout[];
+  isLoggedin: Observable<boolean>;
   user = this.authService.parseUserData();
 
   ngOnInit() {
+    this.isLoggedin = this.authService.isLogged$;
     this.homeService.getWorkouts().subscribe(workouts => {
       this.workouts = workouts;
     },
-    err => {
-      console.log(err);
+    error => {
+      console.log(error);
       return false;
     });
   }
