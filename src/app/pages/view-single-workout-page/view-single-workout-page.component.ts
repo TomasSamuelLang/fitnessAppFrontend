@@ -16,10 +16,12 @@ export class ViewSingleWorkoutPageComponent implements OnInit {
   isLoggedin: Observable<boolean>;
   user = this.authService.parseUserData();
   workout: any;
+  displayLogActivityComponents: boolean;
 
   constructor(private route: ActivatedRoute, private authService: AuthService, private workoutService: WorkoutService) { }
 
   ngOnInit() {
+    this.displayLogActivityComponents = false;
     this.isLoggedin = this.authService.isLogged$;
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.workoutId = params.get('id');
@@ -28,5 +30,11 @@ export class ViewSingleWorkoutPageComponent implements OnInit {
       this.workout = data;
     });
     });
+  }
+
+  onLogActivity() {
+    if (this.authService.isLoggedIn()) {
+      this.displayLogActivityComponents = !this.displayLogActivityComponents;
+    }
   }
 }

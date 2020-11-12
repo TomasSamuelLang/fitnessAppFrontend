@@ -5,10 +5,12 @@
     <h3 *ngIf="(isLoggedin | async) && workout.userId == user.id">You can edit this workout</h3>
     <h2 *ngIf="!(isLoggedin | async)">You are not logged in</h2>
     <h3 *ngIf="!(isLoggedin | async)">To edit workout or to log activity log in</h3>
-    <h6 *ngIf="!(isLoggedin | async)">You can only edit your own workouts</h6>
+    <h6 *ngIf="!(isLoggedin | async) || ((isLoggedin | async) && workout.userId != user.id)">You can only edit your own workouts</h6>
     <div>
       <button *ngIf="(isLoggedin | async) && workout.userId == user.id" mat-raised-button color="primary" class="button">Edit workout</button>
-      <button *ngIf="(isLoggedin | async) && workout.userId == user.id" mat-raised-button color="primary" class="button">Log activity</button>
+      <button *ngIf="(isLoggedin | async) && workout.userId == user.id && !displayLogActivityComponents" mat-raised-button color="primary" class="button" (click)="onLogActivity()">Log activity</button>
+      <button *ngIf="(isLoggedin | async) && workout.userId == user.id && displayLogActivityComponents" mat-raised-button class="button" (click)="onLogActivity()">Cancel</button>
+      <button *ngIf="(isLoggedin | async) && workout.userId == user.id && displayLogActivityComponents" mat-raised-button color="accent" class="button">Save the activity</button>
     </div>
   </div>
   <div class="container">

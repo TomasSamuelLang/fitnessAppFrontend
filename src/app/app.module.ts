@@ -32,6 +32,7 @@ import { AuthService } from './pages/login-page/auth.service';
 import { RegisterService } from './pages/register-page/register-page.service';
 import { HomePageService } from './pages/home-page/home-page.service';
 import { WorkoutService } from './services/workout.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { WorkoutService } from './services/workout.service';
     RegisterService,
     HomePageService,
     AuthService,
-    WorkoutService
+    WorkoutService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })
