@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Observable, Subject} from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { Observable, Subject } from 'rxjs';
+import apiBaseURL from 'src/app/services/config';
 
 export interface Workout {
   _id: string;
@@ -19,6 +19,6 @@ export class HomePageService {
   }
 
   getWorkouts(): Observable<Workout[]> {
-    return this.http.get<Workout[]>('http://localhost:3000/workouts');
+    return this.http.get<Workout[]>(`${apiBaseURL}/workouts`);
   }
 }

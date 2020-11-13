@@ -1,0 +1,41 @@
+<div class="wrapper">
+    <h1>Logs</h1>
+    <div class="list-container">
+        <mat-card class="list-item" *ngFor="let workout of workoutsWithLogs">
+            <mat-card-header>
+                <div mat-card-avatar></div>
+                <mat-card-title>{{workout.name}}</mat-card-title>
+                <mat-card-subtitle>{{workout.date | date : "dd/MM/yy HH:mm:ss"}}</mat-card-subtitle>
+            </mat-card-header>
+            <div mat-card-image></div>
+            <mat-card-content>
+                <h3>Logs:</h3>
+                <ul>
+                    <li *ngFor="let log of workout.logs">{{log.date | date : "dd/MM/yy HH:mm:ss"}} -
+                        {{log.description}}</li>
+                </ul>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <h2>Add New Log</h2>
+    <form method="POST" [formGroup]="addLogForm">
+        <div class="form-field">
+            <mat-form-field>
+                <mat-label> Description </mat-label>
+                <input formControlName="newLogDescription" matInput tpye="text" [(ngModel)]="newLog.description">
+                <mat-hint> The description of the log </mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="form-field">
+            <mat-form-field>
+                <mat-label> Workout </mat-label>
+                <mat-select formControlName="newLogWorkoutId" matSelect [(ngModel)]="newLog.workoutId">
+                    <mat-option *ngFor="let workout of workouts" value="{{workout._id}}">{{workout.name}}</mat-option>
+                </mat-select>
+                <mat-hint> Select a workout </mat-hint>
+            </mat-form-field>
+        </div>
+    </form>
+    <button mat-raised-button color="primary" class="submit-button" (click)="onSubmit()"
+        [disabled]="!addLogForm.valid">Log workout</button>
+</div>

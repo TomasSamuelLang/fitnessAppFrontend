@@ -11,8 +11,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CreateWorkoutPageComponent } from './pages/create-workout-page/create-workout-page.component';
 import { ViewWorkoutsPageComponent } from './pages/view-workouts-page/view-workouts-page.component';
 import { ViewSingleWorkoutPageComponent } from './pages/view-single-workout-page/view-single-workout-page.component';
+import { LogWorkoutActivityPageComponent } from './pages/log-workout-activity-page/log-workout-activity-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
   MatInputModule,
@@ -26,6 +27,7 @@ import {
   MatCardModule,
   MatOptionModule,
   MatTableModule,
+  MatSelectModule,
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './pages/login-page/auth.service';
@@ -33,6 +35,7 @@ import { RegisterService } from './pages/register-page/register-page.service';
 import { HomePageService } from './pages/home-page/home-page.service';
 import { WorkoutService } from './services/workout.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { CdkColumnDef } from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,7 @@ import { AuthGuard } from './services/auth-guard.service';
     CreateWorkoutPageComponent,
     ViewWorkoutsPageComponent,
     ViewSingleWorkoutPageComponent,
+    LogWorkoutActivityPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +70,7 @@ import { AuthGuard } from './services/auth-guard.service';
     MatCardModule,
     FormsModule,
     MatOptionModule,
+    MatSelectModule,
   ],
   providers: [
     RegisterService,
@@ -73,6 +78,7 @@ import { AuthGuard } from './services/auth-guard.service';
     AuthService,
     WorkoutService,
     AuthGuard,
+    CdkColumnDef,
   ],
   bootstrap: [AppComponent]
 })
