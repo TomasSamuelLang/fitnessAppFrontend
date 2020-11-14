@@ -31,7 +31,7 @@ export class Workout2 {
 /* to include exercise in a workout, we must include amount of reps and sets */
 export class ViewWorkoutExercise {
     id: string;
-    sets: number;
+    set: number;
     repsOrTime: number;
     name: string;
     description: string = "";
@@ -40,7 +40,7 @@ export class ViewWorkoutExercise {
         this.id = id;
         this.name = name
         this.repsOrTime = 0;
-        this.sets = 0;
+        this.set = 0;
     }
 }
 
