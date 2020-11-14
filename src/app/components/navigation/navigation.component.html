@@ -11,11 +11,8 @@
       <a mat-button [routerLink]="'/register'" *ngIf="!(isLoggedin | async)"> Register </a>
       <a mat-button [routerLink]="'/createWorkout'" *ngIf="isLoggedin | async"> Create workout </a>
       <a mat-button [routerLink]="'/workouts'" *ngIf="isLoggedin | async">My workouts</a>
+      <a mat-button [routerLink]="'/logs'" *ngIf="isLoggedin | async">My logs</a>
       <a mat-button [routerLink]="'/'" (click)=logoutUser() *ngIf="isLoggedin | async">Logout</a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
-
-
-
-
