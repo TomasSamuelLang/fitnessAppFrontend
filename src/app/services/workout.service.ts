@@ -31,12 +31,12 @@ export class WorkoutService {
   }
 
   getWorkout(id: string): Promise<Workout> {
-    return this.http.get<Workout>(`${this.apiBaseUrl}/workout/${id}`).toPromise();
+    return this.http.get<Workout>(`${this.apiURL}/workout/${id}`).toPromise();
   }
 
   updateWorkout(workout) {
     const token = this.authService.retrieveToken();
-    const header = new HttpHeaders({'Content-Type': 'application/json', Authorization: token});
-    return this.http.put<Workout>(`${this.apiBaseUrl}`, workout, {headers: header}).toPromise();
+    const header = new HttpHeaders({ 'Content-Type': 'application/json', Authorization: token });
+    return this.http.put<Workout>(`${this.apiURL}`, workout, { headers: header }).toPromise();
   }
 }
