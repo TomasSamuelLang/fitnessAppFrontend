@@ -8,6 +8,7 @@ import { ViewWorkoutsPageComponent } from './pages/view-workouts-page/view-worko
 import { ViewSingleWorkoutPageComponent } from './pages/view-single-workout-page/view-single-workout-page.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { LogWorkoutActivityPageComponent } from './pages/log-workout-activity-page/log-workout-activity-page.component';
+import { EditSingleWorkoutComponent } from './pages/edit-single-workout/edit-single-workout.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'workouts', component: ViewWorkoutsPageComponent, canActivate: [AuthGuard] },
   { path: 'workouts/:id', component: ViewSingleWorkoutPageComponent },
   { path: 'logs', component: LogWorkoutActivityPageComponent, canActivate: [AuthGuard] },
+  { path: 'workouts/:id/edit', component: EditSingleWorkoutComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' },
 ];
 

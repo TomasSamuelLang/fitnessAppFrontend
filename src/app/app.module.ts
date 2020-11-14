@@ -35,7 +35,7 @@ import { RegisterService } from './pages/register-page/register-page.service';
 import { HomePageService } from './pages/home-page/home-page.service';
 import { WorkoutService } from './services/workout.service';
 import { AuthGuard } from './services/auth-guard.service';
-import { CdkColumnDef } from '@angular/cdk/table';
+import { EditSingleWorkoutComponent } from './pages/edit-single-workout/edit-single-workout.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +49,7 @@ import { CdkColumnDef } from '@angular/cdk/table';
     ViewWorkoutsPageComponent,
     ViewSingleWorkoutPageComponent,
     LogWorkoutActivityPageComponent,
+    EditSingleWorkoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +79,6 @@ import { CdkColumnDef } from '@angular/cdk/table';
     AuthService,
     WorkoutService,
     AuthGuard,
-    CdkColumnDef,
   ],
   bootstrap: [AppComponent]
 })
