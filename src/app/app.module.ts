@@ -26,7 +26,6 @@ import {
   MatCardModule,
   MatOptionModule,
   MatTableModule,
-  MatSelectModule,
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './pages/login-page/auth.service';
@@ -69,7 +68,6 @@ import { EditSingleWorkoutComponent } from './pages/edit-single-workout/edit-sin
     MatCardModule,
     FormsModule,
     MatOptionModule,
-    MatSelectModule,
   ],
   providers: [
     RegisterService,

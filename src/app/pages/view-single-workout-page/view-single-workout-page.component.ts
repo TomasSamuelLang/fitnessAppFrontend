@@ -33,8 +33,7 @@ export class ViewSingleWorkoutPageComponent implements OnInit {
     });
 
     this.addLogForm = new FormGroup({
-      newLogDescription: new FormControl(null, Validators.required),
-      newLogWorkoutId: new FormControl(null, Validators.required)
+      newLogDescription: new FormControl(null, Validators.required)
     });
     this.resetData();
   }
