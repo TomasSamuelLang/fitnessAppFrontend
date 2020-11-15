@@ -1,4 +1,4 @@
-.form-field{
+.form-field {
     margin-top: 15px;
 }
 
@@ -31,26 +31,30 @@ input.selection-list-item-input {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 button {
     width: 300px;
 }
 
-textarea{
+textarea {
     width: 400px;
     height: 100px;
 }
 
-#newExerciseInputs{
+#newExerciseInputs {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 }
 
-#exerciseDesc{
+#exerciseDesc {
     flex: 2;
     margin-left: 10px;
+}
+
+.wrapper {
+    margin-bottom: 70px;
 }

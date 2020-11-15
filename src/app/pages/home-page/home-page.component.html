@@ -1,20 +1,22 @@
 <div class="wrapper">
   <div class="home-container">
     <div class="jumbo jumbo-content">
-        <h1 *ngIf="!(isLoggedin | async)">Fitness app</h1>
-        <h1 *ngIf="isLoggedin | async">Welcome back {{user.email}}</h1>
-        <p *ngIf="!(isLoggedin | async)">
-          Create workout programs with various exercises. Log into your account in order to manage workouts, register for a new account
-           or simply view workouts existing workouts to get inspired
-        </p>
-        <p *ngIf="isLoggedin | async">
-          Bellow you can review all workouts, click view to display workouts, click edit to add exercises to your workouts, click
-          my workouts to see only your own workouts. Log activity in your own workout.
-        </p>
-        <div class="button-group" *ngIf="!(isLoggedin | async)">
-          <a mat-raised-button [routerLink]="'/login'" color="accent" class="button"> Login </a>
-          <a mat-raised-button [routerLink]="'/register'" color="accent" class="button"> Register </a>
-        </div>
+      <h1 *ngIf="!(isLoggedin | async)">Fitness app</h1>
+      <h1 *ngIf="isLoggedin | async">Welcome back {{user.email}}</h1>
+      <p *ngIf="!(isLoggedin | async)">
+        Create workout programs with various exercises. Log into your account in order to manage workouts, register for
+        a new account
+        or simply view workouts existing workouts to get inspired
+      </p>
+      <p *ngIf="isLoggedin | async">
+        Bellow you can review all workouts, click view to display workouts, click edit to add exercises to your
+        workouts, click
+        my workouts to see only your own workouts. Log activity in your own workout.
+      </p>
+      <div class="button-group" *ngIf="!(isLoggedin | async)">
+        <a mat-raised-button [routerLink]="'/login'" color="accent" class="button"> Login </a>
+        <a mat-raised-button [routerLink]="'/register'" color="accent" class="button"> Register </a>
+      </div>
     </div>
     <!-- <div class="fillout-column">
       <img src="https://prenocuj.sk/wp-content/uploads/2019/10/cvičiť-doma-1.jpg" width="420px" height="350px" alt="Fitness girl" style="padding-top: 20px;">
@@ -33,24 +35,25 @@
     <div class="workouts">
       <h2>View workouts: </h2>
     </div>
-      <div *ngFor="let workout of workouts; let i = index">
-        <mat-card class="card">
-          <mat-card-header>
-            <mat-card-title>{{workouts[i].name}}</mat-card-title>
-            <mat-card-subtitle>Exercises: {{workouts[i].exercises.length}}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              Description: {{workouts[i].description}}
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button routerLink="/workouts/{{workouts[i]._id}}">View</button>
-            <button mat-button disabled *ngIf="user.id != workouts[i].userId">Edit</button>
-            <button mat-button routerLink="/workouts/{{workouts[i]._id}}/edit" *ngIf="user.id === workouts[i].userId">Edit</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+    <div *ngFor="let workout of workouts; let i = index">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>{{workouts[i].name}}</mat-card-title>
+          <mat-card-subtitle>Exercises: {{workouts[i].exercises.length}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Description: {{workouts[i].description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button routerLink="/workouts/{{workouts[i]._id}}">View</button>
+          <button mat-button disabled *ngIf="user.id != workouts[i].userId">Edit</button>
+          <button mat-button routerLink="/workouts/{{workouts[i]._id}}/edit"
+            *ngIf="user.id === workouts[i].userId">Edit</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
 
 </div>

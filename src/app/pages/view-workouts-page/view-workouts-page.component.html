@@ -1,18 +1,24 @@
 <div class="wrapper">
-  <div class="list-container">
-    <mat-card class="list-item" *ngFor="let workout  of workouts" (click)="getWorkout(workout._id)">
-      <mat-card-header>
-        <div mat-card-avatar></div>
-        <mat-card-title>{{workout.name}}</mat-card-title>
-        <mat-card-subtitle>{{workout.date}}</mat-card-subtitle>
-      </mat-card-header>
-      <div mat-card-image></div>
-      <mat-card-content>
-        <p>
-          {{workout.description}}
-        </p>
-        Containing {{workout.exercises.length}} exercise(s)
-      </mat-card-content>
-    </mat-card>
+  <div class="home-container">
+    <div class="jumbo jumbo-content">
+      <h1>View your workouts: </h1>
+    </div>
+    <div *ngFor="let workout of workouts; let i = index">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>{{workouts[i].name}}</mat-card-title>
+          <mat-card-subtitle>Exercises: {{workouts[i].exercises.length}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Description: {{workouts[i].description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button routerLink="/workouts/{{workouts[i]._id}}">View</button>
+          <button mat-button routerLink="/workouts/{{workouts[i]._id}}/edit">Edit</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
 </div>

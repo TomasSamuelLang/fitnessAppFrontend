@@ -3,6 +3,7 @@
   justify-content: center;
   flex-direction: column;
   padding: 30px;
+  margin-bottom: 50px;
 }
 
 .container {
@@ -27,11 +28,11 @@
 }
 
 .header {
- margin-left: 5rem;
- margin-right: 5rem;
- background-color:  #e9ecef;
- padding-left: 30px;
- padding-right: 30px;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  background-color: #e9ecef;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .button {

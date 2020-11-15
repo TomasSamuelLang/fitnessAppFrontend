@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-view-workouts-page',
   templateUrl: './view-workouts-page.component.html',
-  styleUrls: ['./view-workouts-page.component.css', '../../app.component.css']
+  styleUrls: ['./view-workouts-page.component.css', '../home-page/home-page.component.css']
 })
 export class ViewWorkoutsPageComponent implements OnInit {
 
