@@ -23,7 +23,7 @@ export class WorkoutService {
   postWorkout(userId: string, workout: Workout) {
     const token = this.authService.retrieveToken();
     const header = new HttpHeaders({ 'Content-Type': 'application/json', Authorization: token });
-    return this.http.post(`${this.apiURL}/${userId}`, workout, { headers: header }).toPromise();
+    return this.http.post(`${this.apiURL}`, workout, { headers: header }).toPromise();
   }
 
   getWorkoutandExercises(workoutId: string): Observable<Workout2> {

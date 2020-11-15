@@ -1,2 +1,2 @@
-const apiBaseURL: string = 'http://localhost:3000';
+const apiBaseURL = 'https://fitness-au-backend.herokuapp.com';
 export default apiBaseURL;

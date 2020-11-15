@@ -9,7 +9,7 @@ import { WorkoutService } from '../../services/workout.service';
 @Component({
   selector: 'app-view-single-workout-page',
   templateUrl: './view-single-workout-page.component.html',
-  styleUrls: ['./view-single-workout-page.component.css', '../create-workout-page/create-workout-page.component.css', '../../app.component.css']
+  styleUrls: ['./view-single-workout-page.component.css']
 })
 export class ViewSingleWorkoutPageComponent implements OnInit {
   workoutId: string;
