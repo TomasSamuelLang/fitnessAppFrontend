@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import apiBaseURL from 'src/app/services/config';
 
 @Injectable()
 export class RegisterService {
@@ -10,7 +9,7 @@ export class RegisterService {
   }
 
   registerUser(body: any) {
-    return this.http.post('http://127.0.0.1:3000/' + 'register', body, {
+    return this.http.post(apiBaseURL + '/register', body, {
       observe: 'body',
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     });

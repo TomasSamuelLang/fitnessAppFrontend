@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, BehaviorSubject, Subject } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import apiBaseURL from 'src/app/services/config';
 
 
 @Injectable()
@@ -17,7 +16,7 @@ export class AuthService {
   public user$ = this.user.asObservable();
 
   login(body: any) {
-    return this.http.post<any>('http://127.0.0.1:3000/' + 'login', body, {
+    return this.http.post<any>(apiBaseURL + '/login', body, {
       observe: 'body',
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     });
@@ -36,7 +35,7 @@ export class AuthService {
   }
 
   retrieveToken() {
-    if (localStorage.token)  {
+    if (localStorage.token) {
       return localStorage.token;
     } else {
       return null;
@@ -54,7 +53,7 @@ export class AuthService {
       const result = JSON.parse(window.atob(token.split('.')[1]));
       return result.exp > Date.now() / 1000;
     } else {
-          return false;
+      return false;
     }
   }
 

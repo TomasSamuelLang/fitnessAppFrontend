@@ -11,7 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CreateWorkoutPageComponent } from './pages/create-workout-page/create-workout-page.component';
 import { ViewWorkoutsPageComponent } from './pages/view-workouts-page/view-workouts-page.component';
 import { ViewSingleWorkoutPageComponent } from './pages/view-single-workout-page/view-single-workout-page.component';
-import { LogWorkoutActivityPageComponent } from './pages/log-workout-activity-page/log-workout-activity-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {
@@ -48,7 +47,6 @@ import { EditSingleWorkoutComponent } from './pages/edit-single-workout/edit-sin
     CreateWorkoutPageComponent,
     ViewWorkoutsPageComponent,
     ViewSingleWorkoutPageComponent,
-    LogWorkoutActivityPageComponent,
     EditSingleWorkoutComponent,
   ],
   imports: [

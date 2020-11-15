@@ -5,13 +5,14 @@
     <h3 *ngIf="(isLoggedin | async) && workout.userId == user.id">You can edit this workout</h3>
     <h2 *ngIf="!(isLoggedin | async)">You are not logged in</h2>
     <h3 *ngIf="!(isLoggedin | async)">To edit workout or to log activity log in</h3>
-    <h6 *ngIf="!(isLoggedin | async) || ((isLoggedin | async) && workout.userId != user.id)">You can only edit your own workouts</h6>
-    <div>
-      <button *ngIf="(isLoggedin | async) && workout.userId == user.id" mat-raised-button color="primary" class="button" (click)="onEdit()">Edit workout</button>
-      <button *ngIf="(isLoggedin | async) && workout.userId == user.id && !displayLogActivityComponents" mat-raised-button color="primary" class="button" (click)="onLogActivity()">Log activity</button>
-      <button *ngIf="(isLoggedin | async) && workout.userId == user.id && displayLogActivityComponents" mat-raised-button class="button" (click)="onLogActivity()">Cancel</button>
-      <button *ngIf="(isLoggedin | async) && workout.userId == user.id && displayLogActivityComponents" mat-raised-button color="accent" class="button">Save the activity</button>
-    </div>
+    <h6 *ngIf="!(isLoggedin | async) || ((isLoggedin | async) && workout.userId != user.id)">You can only edit your own
+      workouts</h6>
+    <button *ngIf="(isLoggedin | async) && workout.userId == user.id" mat-raised-button color="primary" class="button"
+      (click)="onEdit()">Edit workout</button>
+    <button *ngIf="(isLoggedin | async) && workout.userId == user.id && !displayLogActivityComponents" mat-raised-button
+      color="primary" class="button" (click)="onLogActivity()">Log activity</button>
+    <button *ngIf="(isLoggedin | async) && workout.userId == user.id && displayLogActivityComponents" mat-raised-button
+      class="button" (click)="onLogActivity()">Cancel Log activity</button>
   </div>
   <div class="container">
     <div class="padding">
@@ -32,10 +33,34 @@
     </div>
     <mat-divider [vertical]="true"></mat-divider>
     <div class="padding">
-      <img src="https://img.icons8.com/ios/452/dumbbell.png" width="400px" height="400px" alt="dumbbell" style="opacity: 0.1;">
+      <img *ngIf="!displayLogActivityComponents" src="https://img.icons8.com/ios/452/dumbbell.png" width="400px"
+        height="400px" alt="dumbbell" style="opacity: 0.1;">
+      <div *ngIf="displayLogActivityComponents">
+        <h1>Logs</h1>
+        <div class="list-container">
+          <mat-card class="list-item">
+            <mat-card-content>
+              <h3>Logs:</h3>
+              <ul>
+                <li *ngFor="let log of workout.logs">{{log.date | date : "dd/MM/yy HH:mm:ss"}} -
+                  {{log.description}}</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <h2>Add A New Log</h2>
+        <form method="POST" [formGroup]="addLogForm">
+          <div class="form-field">
+            <mat-form-field>
+              <mat-label> Description </mat-label>
+              <textarea formControlName="newLogDescription" matTextarea [(ngModel)]="newLog.description"></textarea>
+              <mat-hint> The description of the log </mat-hint>
+            </mat-form-field>
+          </div>
+        </form>
+        <button mat-raised-button color="primary" class="submit-button" (click)="onSubmitNewLog()"
+          [disabled]="!addLogForm.valid">Log workout</button>
+      </div>
     </div>
   </div>
 </div>
-
-
-
